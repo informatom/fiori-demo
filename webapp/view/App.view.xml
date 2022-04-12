@@ -1,0 +1,55 @@
+<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" controllerName="myapp.controller.App">
+  <App id="myapp">
+    <pages>
+      <Page id="mypage" title="openSAP - Developing with SAPUI5">
+        <content>
+          <IconTabBar id="idTopLevelIconTabBar" class="sapUiResponsiveContentPadding">
+            <items>
+              <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+                <Carousel id="myc">
+                  <pages>
+                    <Image id="firstimg" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/GEO_Globe.jpg" height="600px" />
+                    <Image id="secondimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Wikipedia_Hello_World_Graphic.svg/2000px-Wikipedia_Hello_World_Graphic.svg.png" height="600px" />
+                  </pages>
+                </Carousel>
+                <Button id="mybutton" text="{i18n>showHelloButtonText}" press="onShowHello" />
+                <Input id="myInputField" value="{helloPanel>/recipient/name}" description="Hello {helloPanel>/recipient/name}" valueLiveUpdate="true" width="60%" />
+              </IconTabFilter>
+              <IconTabFilter id="layouts" text="{i18n>layoutFilter}">
+                <MessageStrip id="mymessagestrip" type="Information" showIcon="true" text="Here's a Form Layout inside an Icon Tab Bar …" />
+                <f:SimpleForm id="simpleFormChange" title="Address" editable="true" class="editableForm apUiSmallMarginTopBottom">
+                  <f:content>
+                    <Label id="1stlabel" text="{i18n>layoutFormName}" />
+                    <Input id="1stinput" value="{address>/Name}" />
+                    <Label id="2ndlabel" text="{i18n>layoutFormStreet}" />
+                    <Input id="2ndinput" value="{address>/Street}" />
+                    <Label id="3rdlabel" text="{i18n>layoutFormHouseNumber}" />
+                    <Input id="3rdinput" value="{address>/HouseNumber}" />
+                    <Label id="4thlabel" text="{i18n>layoutFormZIPCode}" />
+                    <Input id="4thinput" value="{address>/ZIPCode}" />
+                    <Label id="5thlabel" text="{i18n>layoutFormCity}" />
+                    <Input id="5thinput" value="{address>/City}" />
+                    <Label id="6thlabel" text="{i18n>layoutFormCountry}" />
+                    <Select id="myselect">
+                      <items>
+                        <core:Item id="firstitem" text="{i18n>layoutCountryGermany}" />
+                        <core:Item id="seconditem" text="{i18n>layoutCountryUSA}" />
+                        <core:Item id="thirditem" text="{i18n>layoutCountryEngland}" />
+                      </items>
+                    </Select>
+                  </f:content>
+                </f:SimpleForm>
+                <Toolbar id="mytoolbar">
+                  <ToolbarSpacer id="mytoolbarspacer" />
+                  <Button id="2ndbutton" icon="sap-icon://outbox" text="{i18n>layoutPublishButton}" type="Accept" />
+                  <Button id="3rdbutton" text="{i18n>layoutDraftButton}" icon="sap-icon://save" />
+                </Toolbar>
+              </IconTabFilter>
+            </items>
+          </IconTabBar>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>
+                                                                                            
