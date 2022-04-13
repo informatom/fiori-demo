@@ -11,13 +11,15 @@
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "dataSources": {
-        "ES5": {
-            "uri": "https://sapes5.sapdevcenter.com/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
-            "type": "OData",
-            "settings": {
-                "odataVersion": "2.0"
-            }
+      "mainService": {
+        "uri": "/sap/opu/odata/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
         }
+      }
     }
   },
   "sap.ui": {
@@ -63,7 +65,15 @@
         }
       },
       "": {
-        "dataSource": "ES5"
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupId": "$direct"
+        }
       },
       "helloPanel": {
         "type": "sap.ui.model.json.JSONModel",

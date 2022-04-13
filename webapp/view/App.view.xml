@@ -3,7 +3,7 @@
     <pages>
       <Page id="mypage" title="openSAP - Developing with SAPUI5">
         <content>
-          <IconTabBar id="idTopLevelIconTabBar" class="sapUiResponsiveContentPadding">
+          <IconTabBar id="idTopLevelIconTabBar" selectedKey="db" class="sapUiResponsiveContentPadding">
             <items>
               <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
                 <Carousel id="myc">
@@ -45,6 +45,23 @@
                   <Button id="3rdbutton" text="{i18n>layoutDraftButton}" icon="sap-icon://save" />
                 </Toolbar>
               </IconTabFilter>
+              <IconTabFilter id="thirdtab"
+              text="{i18n>dataBindingFilter}" key="db">
+              <content>
+                  <List id="myproductlist"
+                      headerText="{i18n>productListTitle}"
+                      items="{/ProductSet}">
+                      <items>
+                          <ObjectListItem
+                              id="myObjectListItem"
+                              title="{Name}"
+                              number="{Price}"
+                              numberUnit="{CurrencyCode}"
+                              intro="{ProductID}" />
+                      </items>
+                  </List>
+              </content>
+          </IconTabFilter>
             </items>
           </IconTabBar>
         </content>
