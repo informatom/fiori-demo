@@ -13,7 +13,17 @@
                   </pages>
                 </Carousel>
                 <Button id="mybutton" text="{i18n>showHelloButtonText}" press="onShowHello" />
-                <Input id="myInputField" value="{helloPanel>/recipient/name}" description="Hello {helloPanel>/recipient/name}" valueLiveUpdate="true" width="60%" />
+                  <Input
+                    id="mynumberinput"
+                    value="{
+                      path: 'helloPanel>/recipient/amount',
+                      type: 'sap.ui.model.type.Float',
+                      formatOptions: {minFractionDigits: 2},
+                      constraints: {maximum : 3000}
+                    }"
+                    description="Hello {helloPanel>/recipient/name}"
+                    valueLiveUpdate="false"
+                    width="60%"/>                
               </IconTabFilter>
               <IconTabFilter id="layouts" text="{i18n>layoutFilter}">
                 <MessageStrip id="mymessagestrip" type="Information" showIcon="true" text="Here's a Form Layout inside an Icon Tab Bar …" />
@@ -55,8 +65,16 @@
                           <ObjectListItem
                               id="myObjectListItem"
                               title="{Name}"
-                              number="{Price}"
-                              numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
+                              number="{
+                                parts: [
+                                  {path: 'Price'},
+                                  {path: 'CurrencyCode'}
+                                ],
+                                type: 'sap.ui.model.type.Currency',
+                                formatOptions: {
+                                  showMeasure: false
+                                }
+                              }"
                               numberUnit="{CurrencyCode}"
                               intro="{ProductID}" >
                               <firstStatus>
@@ -66,7 +84,8 @@
                                     {path: 'WeightMeasure'}
                                   ],
                                   formatter : '.formatter.delivery'
-                                }"/>
+                                }"
+                                id="myObjectStatus" />
                               </firstStatus>
                           </ObjectListItem>
                       </items>
