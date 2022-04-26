@@ -30,3 +30,8 @@ server:
       configuration:
         component: myapp
         ui5Theme: sap_fiori_3
+    - name: ui5-middleware-simpleproxy
+      afterMiddleware: compression
+      mountPath: /es5
+      configuration:
+        baseUri: "https://sapes5.sapdevcenter.com"

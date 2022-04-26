@@ -12,7 +12,7 @@
     "resources": "resources.json",
     "dataSources": {
         "ES5": {
-            "uri": "https://sapes5.sapdevcenter.com/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+            "uri": "es5/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
             "type": "OData",
             "settings": {
                 "odataVersion": "2.0"

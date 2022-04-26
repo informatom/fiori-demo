@@ -9,11 +9,11 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@ui5/cli": "^2.14.1",
-    "@sap/ux-ui5-tooling": "1"
+    "@sap/ux-ui5-tooling": "1",
+    "ui5-middleware-simpleproxy": "^0.8.2"
   },
   "scripts": {
     "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#myapp-display\"",
@@ -28,7 +28,8 @@
   },
   "ui5": {
     "dependencies": [
-      "@sap/ux-ui5-tooling"
+      "@sap/ux-ui5-tooling",
+      "ui5-middleware-simpleproxy"
     ]
   },
   "sapuxLayer": "CUSTOMER_BASE"
