@@ -66,12 +66,15 @@
                             path : 'Category',
                             group : true
                           }
-                        }">
+                        }"
+                        growing="true"
+                        growingThreshold="5"
+                        growingScrollToLoad="false">
                         <headerToolbar>
-                          <Toolbar>
-                            <Title text="{i18n>productListTitle}"/>
-                            <ToolbarSpacer/>
-                            <SearchField width="50%" search="onFilterProducts"/>
+                          <Toolbar id="_IDGenToolbar1">
+                            <Title id="_IDGenTitle1" text="{i18n>productListTitle}"/>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                            <SearchField id="_IDGenSearchField1" width="50%" search="onFilterProducts"/>
                           </Toolbar>
                         </headerToolbar>
                           <items>
@@ -89,7 +92,9 @@
                                     }
                                   }"
                                   numberUnit="{CurrencyCode}"
-                                  intro="{ProductID}" >
+                                  intro="{ProductID}" 
+                                  press="onItemSelected"
+				                          type="Active">
                                   <firstStatus>
                                     <ObjectStatus text="{
                                       parts: [
@@ -107,6 +112,16 @@
               </IconTabFilter>
             </items>
           </IconTabBar>
+          <Panel id="productDetailsPanel" 
+            headerText="{i18n>productDetailPanelHeader}" 
+            visible="false">
+            <l:Grid id="_IDGenGrid1">
+              <Text id="_IDGenText1" text="{i18n>productDetailPanelID}: {ProductID}"/>
+              <Text id="_IDGenText2" text="{i18n>productDetailPanelName}: {Name}"/>
+              <Text id="_IDGenText3" text="{i18n>productDetailPanelDescription}:\n {Description}"/>
+              <Text id="_IDGenText4" text="{i18n>productDetailPanelPrice}: {Price}"/>
+            </l:Grid>		
+          </Panel>
         </content>
       </Page>
     </pages>
