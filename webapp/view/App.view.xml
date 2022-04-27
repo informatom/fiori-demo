@@ -56,42 +56,55 @@
                 </Toolbar>
               </IconTabFilter>
               <IconTabFilter id="thirdtab"
-              text="{i18n>dataBindingFilter}" key="db">
-              <content>
-                  <List id="myproductlist"
-                      headerText="{i18n>productListTitle}"
-                      items="{/ProductSet}">
-                      <items>
-                          <ObjectListItem
-                              id="myObjectListItem"
-                              title="{Name}"
-                              number="{
-                                parts: [
-                                  {path: 'Price'},
-                                  {path: 'CurrencyCode'}
-                                ],
-                                type: 'sap.ui.model.type.Currency',
-                                formatOptions: {
-                                  showMeasure: false
-                                }
-                              }"
-                              numberUnit="{CurrencyCode}"
-                              intro="{ProductID}" >
-                              <firstStatus>
-                                <ObjectStatus text="{
-                                  parts: [
-                                    {path: 'WeightUnit'},
-                                    {path: 'WeightMeasure'}
-                                  ],
-                                  formatter : '.formatter.delivery'
-                                }"
-                                id="myObjectStatus" />
-                              </firstStatus>
-                          </ObjectListItem>
-                      </items>
-                  </List>
-              </content>
-          </IconTabFilter>
+                  text="{i18n>dataBindingFilter}" key="db">
+                  <content>
+                    <List 
+                        id="productsList" 
+                        items="{
+                          path : '/ProductSet',
+                          sorter : {
+                            path : 'Category',
+                            group : true
+                          }
+                        }">
+                        <headerToolbar>
+                          <Toolbar>
+                            <Title text="{i18n>productListTitle}"/>
+                            <ToolbarSpacer/>
+                            <SearchField width="50%" search="onFilterProducts"/>
+                          </Toolbar>
+                        </headerToolbar>
+                          <items>
+                              <ObjectListItem
+                                  id="myObjectListItem"
+                                  title="{Name}"
+                                  number="{
+                                    parts: [
+                                      {path: 'Price'},
+                                      {path: 'CurrencyCode'}
+                                    ],
+                                    type: 'sap.ui.model.type.Currency',
+                                    formatOptions: {
+                                      showMeasure: false
+                                    }
+                                  }"
+                                  numberUnit="{CurrencyCode}"
+                                  intro="{ProductID}" >
+                                  <firstStatus>
+                                    <ObjectStatus text="{
+                                      parts: [
+                                        {path: 'WeightUnit'},
+                                        {path: 'WeightMeasure'}
+                                      ],
+                                      formatter : '.formatter.delivery'
+                                    }"
+                                    id="myObjectStatus" />
+                                  </firstStatus>
+                              </ObjectListItem>
+                          </items>
+                      </List>
+                  </content>
+              </IconTabFilter>
             </items>
           </IconTabBar>
         </content>
