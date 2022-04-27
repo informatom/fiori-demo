@@ -1,4 +1,11 @@
-<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" controllerName="myapp.controller.App">
+<mvc:View 
+    displayBlock="true" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:core="sap.ui.core" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns="sap.m" 
+    controllerName="myapp.controller.App">
   <App id="myapp">
     <pages>
       <Page id="mypage" title="openSAP - Developing with SAPUI5">
@@ -62,6 +69,9 @@
                         id="productsList" 
                         items="{
                           path : '/ProductSet',
+                          parameters : {
+                            expand: 'ToSupplier'
+                          },
                           sorter : {
                             path : 'Category',
                             group : true
@@ -105,6 +115,11 @@
                                     }"
                                     id="myObjectStatus" />
                                   </firstStatus>
+                                  <secondStatus>
+                                    <ObjectStatus id="_IDGenObjectStatus1"
+                                      title="{i18n>statusDeliveryFrom}"
+                                      text="{ToSupplier/Address/City}"/>
+                                  </secondStatus>
                               </ObjectListItem>
                           </items>
                       </List>

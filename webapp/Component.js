@@ -20,6 +20,9 @@ sap.ui.define([
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
 
+                // used only for this lessons to show the request individually...
+			          this.getModel().setUseBatch(false);
+
                 // enable routing
                 this.getRouter().initialize();
 
